@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Checkout geocat-comp
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.2
         with:
           repository: NCAR/geocat-comp
           fetch-depth: 0
       - name: Checkout geocat-comp-asv
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.2
         with:
           repository: NCAR/geocat-comp-asv
           persist-credentials: false
@@ -32,7 +32,7 @@ jobs:
           path: geocat-comp-asv
 
       - name: Setup Miniforge
-        uses: conda-incubator/setup-miniconda@835234971496cad1653abb28a638a281cf32541f # v3
+        uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3
         with:
           miniforge-version: "24.1.2-0"
           activate-environment: asv-bench
@@ -43,7 +43,7 @@ jobs:
         shell: bash
 
       - name: Cache environment
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.CONDA }}/envs
           key:
