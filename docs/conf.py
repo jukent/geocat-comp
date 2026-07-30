@@ -381,6 +381,7 @@ linkcheck_ignore = [
     r'https://zenodo.org/search*',  # 403 Client Error: Forbidden for url
     r'https://library.wmo.int',  # requires verification
     r'https://journals.ametsoc.org/*',  # 405 Client Error: Not Allowed for url
+    r'https://github.com/signup',  # 403 Client Error: Forbidden for url
 ]
 
 # ignore doi redirect warnings
