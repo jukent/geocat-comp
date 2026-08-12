@@ -7,13 +7,40 @@
 
 Release Notes
 =============
+
 vYYYY.MM.## (unreleased)
 ------------------------
 This release...
 
+New Features
+^^^^^^^^^^^^
+
+Breaking Changes
+^^^^^^^^^^^^^^^^
+
+Bug Fixes
+^^^^^^^^^
+
 Internal Changes
 ^^^^^^^^^^^^^^^^
+
+Documentation
+^^^^^^^^^^^^^
+
+
+v2026.04.0 (April 21, 2026)
+------------------------
+This release has updates to fix upstream testing, setup dependabot cooldown, updates to the PR template, moves data files for testing into a new subdirectory, and updates the github release notes template
+
+Developer Features
+^^^^^^^^^^^^^^^^^^
+* 7-day cooldown for dependabot by `Cora Schneck`_ in (:pr:`843`)
 * Fix upstream testing numpy pinning incompatibility and mark tests that require uxarray by `Anissa Zacharias`_ in (:pr:`828`)
+* Add automatic issue creation on upstream testing failure and only retest previously failed tests on re-run by `Anissa Zacharias`_ in (:pr:`830`)
+* Update automatic github release notes template by `Anissa Zacharias`_ in (:pr:`832`)
+* Moves testing data files into their own subdirectory by `Anissa Zacharias`_ in (:pr:`834`)
+* Updates PR template by `Anissa Zacharias`_ in (:pr:`836`)
+
 
 v2026.03.0 (March 11, 2026)
 ---------------------------

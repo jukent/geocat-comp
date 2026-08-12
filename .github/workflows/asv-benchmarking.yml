@@ -1,9 +1,9 @@
 name: ASV Benchmarking
 
 on:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
   workflow_dispatch:
 
 jobs:
@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Checkout geocat-comp
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           repository: NCAR/geocat-comp
           fetch-depth: 0
       - name: Checkout geocat-comp-asv
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           repository: NCAR/geocat-comp-asv
           persist-credentials: false
@@ -32,7 +32,7 @@ jobs:
           path: geocat-comp-asv
 
       - name: Setup Miniforge
-        uses: conda-incubator/setup-miniconda@fc2d68f6413eb2d87b895e92f8584b5b94a10167 # v3
+        uses: conda-incubator/setup-miniconda@8ee1f361103df19b6f8c8655fd3967a8ecb162d5 # v4.0.1
         with:
           miniforge-version: "24.1.2-0"
           activate-environment: asv-bench
@@ -43,7 +43,7 @@ jobs:
         shell: bash
 
       - name: Cache environment
-        uses: actions/cache@v5
+        uses: actions/cache@v6.1.0
         with:
           path: ${{ env.CONDA }}/envs
           key:
@@ -86,14 +86,14 @@ jobs:
           fi
           cp -r benchmarks/results/ geocat-comp-asv/
           cd geocat-comp-asv
-          git config --local user.email "anissaz@ucar.edu"
-          git config --local user.name "anissa111"
+          git config --local user.email "cyschneck@gmail.com"
+          git config --local user.name "cyschneck"
           git add results
           git commit -m "[🤖] Update benchmark results"
 
       - name: Push to geocat-comp-asv
         if: github.ref == 'refs/heads/main' && github.repository == 'NCAR/geocat-comp'
-        uses: ad-m/github-push-action@77c5b412c50b723d2a4fbc6d71fb5723bcd439aa # master
+        uses: ad-m/github-push-action@881a6320fdb16eb5318c5054f31c218aec2b324c # master
         with:
           github_token: ${{ secrets.COMP_ASV_PAT }}
           branch: main
